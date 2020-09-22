@@ -1,5 +1,7 @@
 package com.lele.linkedlist;
 
+import java.util.Stack;
+
 /**
  * author: hwl
  * date: 2020/9/19 16:10
@@ -55,19 +57,48 @@ public class SingleLinkedListDemo {
 //        // 测试 获取单链表有效节点个数
 //        System.out.printf("单链表中有效节点的个数为：%d", getLength(singleLinkedList.getHead()));
 
+//        // 测试 单链表的反转
+//        singleLinkedList.addByOrder(hero1);
+//        singleLinkedList.addByOrder(hero4);
+//        singleLinkedList.addByOrder(hero2);
+//        singleLinkedList.addByOrder(hero3);
+//        System.out.println("原来链表的情况~~");
+//        singleLinkedList.list();
+//        System.out.println("反转链表后~~");
+//        reverseList(singleLinkedList.getHead());
+//        singleLinkedList.list();
+
+
         // 测试 单链表的反转
         singleLinkedList.addByOrder(hero1);
         singleLinkedList.addByOrder(hero4);
         singleLinkedList.addByOrder(hero2);
         singleLinkedList.addByOrder(hero3);
-
         System.out.println("原来链表的情况~~");
         singleLinkedList.list();
+        System.out.println("逆序打印的情况~~");
+        reversePrint(singleLinkedList.getHead());
 
-        System.out.println("反转链表后~~");
-        reverseList(singleLinkedList.getHead());
-        singleLinkedList.list();
+    }
 
+    /**
+     * 单链表的逆序打印
+     * 将单链表的各个节点压入栈中，利用栈的先进后出的特点，实现逆序打印的效果
+     * @param head 头节点
+     */
+    public static void reversePrint(HeroNode head) {
+        if (head.next == null) {
+            return; // 空链表，不能打印
+        }
+        Stack<HeroNode> stack = new Stack<HeroNode>(); // 创建栈
+        HeroNode cur = head.next;
+        while(cur != null) {
+            stack.push(cur);  // 入栈
+            cur = cur.next; // 后移，继续压入下一个节点
+        }
+        while(stack.size() > 0) {
+            System.out.println(stack.pop());  //出栈
+        }
     }
 
     /**
