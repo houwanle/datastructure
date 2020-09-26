@@ -8,3 +8,4 @@
 ### 2. 链表
 - [单链表](./src/com/lele/linkedlist/SingleLinkedListDemo.java)
 - [双向链表](./src/com/lele/linkedlist/DoubleLinkedListDemo.java)
+- [约瑟夫问题](./src/com/lele/linkedlist/Josephu.java)
