@@ -17,3 +17,5 @@
 - [逆波兰计算器完整版](./src/com/lele/stack/ReversePolishMultiCalc.java)
 
 ### 4. 递归
+- [递归简单案例](./src/com/lele/recursion/RecursionTest.java)
+- [迷宫问题](./src/com/lele/recursion/MiGong.java)
