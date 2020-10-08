@@ -19,3 +19,7 @@
 ### 4. 递归
 - [递归简单案例](./src/com/lele/recursion/RecursionTest.java)
 - [迷宫问题](./src/com/lele/recursion/MiGong.java)
+- [八皇后问题](./src/com/lele/recursion/Queue8.java)
+
+### 5. 排序
+- [冒泡排序](./src/com/lele/sort/BubbleSort.java)
