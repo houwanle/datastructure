@@ -24,3 +24,4 @@
 ### 5. 排序
 - [冒泡排序](./src/com/lele/sort/BubbleSort.java)
 - [选择排序](./src/com/lele/sort/SelectSort.java)
+- [插入排序](./src/com/lele/sort/InsertSort.java)
