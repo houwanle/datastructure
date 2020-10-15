@@ -26,3 +26,4 @@
 - [选择排序](./src/com/lele/sort/SelectSort.java)
 - [插入排序](./src/com/lele/sort/InsertSort.java)
 - [希尔排序](./src/com/lele/sort/ShellSort.java)
+- [快速排序](./src/com/lele/sort/QuickSort.java)
