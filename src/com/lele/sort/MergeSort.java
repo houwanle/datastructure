@@ -1,6 +1,8 @@
 package com.lele.sort;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 
 /**
  * author: hwl
@@ -11,12 +13,28 @@ import java.util.Arrays;
  */
 public class MergeSort {
     public static void main(String[] args) {
-        int arr[] = {8,4,5,7,1,3,6,2};
-        int temp[] = new int[arr.length]; //归并排序需要一个额外空间
+//        int arr[] = {8,4,5,7,1,3,6,2};
 
+        // 测试快排的执行速度
+        // 创建一个80000个随机数的数组
+        int[] arr = new int[80000];
+        for (int i = 0; i < 80000; i++) {
+            arr[i] = (int)(Math.random() * 8000000);
+        }
+
+        Date date1 = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String date1Str = simpleDateFormat.format(date1);
+        System.out.println("排序前的时间是：" + date1Str);
+
+        int temp[] = new int[arr.length]; //归并排序需要一个额外空间
         mergeSort(arr, 0, arr.length - 1, temp);
 
-        System.out.println("排序后=" + Arrays.toString(arr));
+        Date date2 = new Date();
+        String date2Str = simpleDateFormat.format(date2);
+        System.out.println("排序后的时间：" + date2Str);
+
+//        System.out.println("排序后=" + Arrays.toString(arr));
     }
 
     public static void mergeSort(int[] arr, int left, int right, int[] temp) {
