@@ -29,3 +29,6 @@
 - [快速排序](./src/com/lele/sort/QuickSort.java)
 - [归并排序](./src/com/lele/sort/MergeSort.java)
 - [基数排序](./src/com/lele/sort/RadixSort.java)
+
+### 6. 查找
+- [线性查找](./src/com/lele/search/SeqSearch.java)
