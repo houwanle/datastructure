@@ -33,3 +33,4 @@
 ### 6. 查找
 - [线性查找](./src/com/lele/search/SeqSearch.java)
 - [二分查找](./src/com/lele/search/BinarySearch.java)
+- [插值查找](./src/com/lele/search/InsertValueSearch.java)
