@@ -34,3 +34,4 @@
 - [线性查找](./src/com/lele/search/SeqSearch.java)
 - [二分查找](./src/com/lele/search/BinarySearch.java)
 - [插值查找](./src/com/lele/search/InsertValueSearch.java)
+- [斐波那契（黄金分割法）查找](./src/com/lele/search/FibonacciSearch.java)
