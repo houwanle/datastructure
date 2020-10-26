@@ -35,3 +35,6 @@
 - [二分查找](./src/com/lele/search/BinarySearch.java)
 - [插值查找](./src/com/lele/search/InsertValueSearch.java)
 - [斐波那契（黄金分割法）查找](./src/com/lele/search/FibonacciSearch.java)
+
+### 7. 哈希表
+- [哈希表](./src/com/lele/hashtab/HashTabDemo.java)
