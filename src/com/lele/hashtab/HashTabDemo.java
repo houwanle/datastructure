@@ -250,7 +250,11 @@ class EmpLinkedList {
         }
         if (flag) {
             if (curEmp == head) {
-                head = null;
+                if (head.next == null){ // 链表中只有一个结点，并且该节点为头结点
+                    head = null;
+                } else { // 链表中有多个元素，要删除的元素在头节点上
+                    head = head.next;
+                }
             } else {
                 curEmp.next = curEmp.next.next;
             }
