@@ -40,4 +40,4 @@
 - [哈希表](./src/com/lele/hashtab/HashTabDemo.java)
 
 ### 8. 树
-- [二叉树遍历](./src/com/lele/tree/BinaryTreeDemo.java)
+- [二叉树遍历/查找](./src/com/lele/tree/BinaryTreeDemo.java)

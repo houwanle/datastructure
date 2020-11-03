@@ -176,4 +176,34 @@ class HeroNode {
         }
         System.out.println(this);
     }
+
+    /**
+     * 前序遍历查找
+     * @param no  查找 no
+     * @return  如果找到就返回该Node，如果没有找到就返回 null
+     */
+    public HeroNode preOrderSearch(int no) {
+        System.out.println("进入前序遍历");
+        // 比较当前节点
+        if (this.no == no) {
+            return this;
+        }
+
+        // 1.判断当前节点的左子节点是否为空，如果不为空，则递归前序查找
+        // 2.如果左递归前序查找，找到节点，则返回
+        HeroNode resNode = null;
+        if (this.left != null) {
+            resNode = this.left.preOrderSearch(no);
+        }
+        if (resNode != null) {  //找到
+            return resNode;
+        }
+        // 1.左递归前序查找，找到节点，则返回，否则继续判断
+        // 2.当前的节点的右子节点是否为空，如果不为空，则继续向右递归前序查找
+        if (this.right != null) {
+            resNode = this.right.preOrderSearch(no);
+        }
+        return resNode;
+    }
+
 }
