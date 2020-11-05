@@ -41,3 +41,4 @@
 
 ### 8. 树
 - [二叉树遍历/查找/删除](./src/com/lele/tree/BinaryTreeDemo.java)
+- [顺序存储二叉树的遍历](./src/com/lele/tree/ArrBinaryTreeDemo.java)
