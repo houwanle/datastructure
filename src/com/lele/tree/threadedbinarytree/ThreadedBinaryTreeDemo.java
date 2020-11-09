@@ -36,7 +36,7 @@ public class ThreadedBinaryTreeDemo {
         System.out.println("10号结点的前驱结点是：" + leftNode);// 3
         System.out.println("10号结点的后继结点是：" + rightNode);// 1
 
-        // 当线索化二叉树后，能在使用原来的遍历方法
+        // 当线索化二叉树后，不能再使用原来的遍历方法
 //        threadedBinaryTree.infixOrder();
         System.out.println("使用线索化的方式遍历 线索化二叉树");
         threadedBinaryTree.threadedList();// 8,3,10,1,14,6
@@ -123,6 +123,10 @@ class ThreadedBinaryTree {
         // 线索化右子树
         threadedNodes(node.getRight());
     }
+
+    /**
+     * 前序、后序线索化
+     */
 
     /**
      * 删除结点
