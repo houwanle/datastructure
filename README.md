@@ -43,3 +43,6 @@
 - [二叉树遍历/查找/删除](./src/com/lele/tree/BinaryTreeDemo.java)
 - [顺序存储二叉树的遍历](./src/com/lele/tree/ArrBinaryTreeDemo.java)
 - [线索化二叉树](./src/com/lele/tree/threadedbinarytree/ThreadedBinaryTreeDemo.java)
+
+### 9. 树结构的实际应用
+- [堆排序](./src/com/lele/tree/HeapSort.java)
