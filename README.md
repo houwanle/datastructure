@@ -46,3 +46,4 @@
 
 ### 9. 树结构的实际应用
 - [堆排序](./src/com/lele/tree/HeapSort.java)
+- [哈夫曼树](./src/com/lele/huffmantree/HuffmanTree.java)
