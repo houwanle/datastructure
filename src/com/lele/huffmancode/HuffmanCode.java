@@ -1,9 +1,6 @@
 package com.lele.huffmancode;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * author: hwl
@@ -21,6 +18,20 @@ public class HuffmanCode {
         List<Node> nodes = getNodes(contentBytes);
         System.out.println("nodes=" + nodes);
 
+        // 测试，创建二叉树
+        System.out.println("哈夫曼树");
+        Node huffmanTreeRoot = createHuffmanTree(nodes);
+        System.out.println("前序遍历");
+        huffmanTreeRoot.preOrder();
+
+    }
+
+    private static void preOrder(Node root) {
+        if (root != null) {
+            root.preOrder();
+        } else {
+            System.out.println("哈夫曼树为空");
+        }
     }
 
     /**
@@ -48,6 +59,29 @@ public class HuffmanCode {
             nodes.add(new Node(entry.getKey(), entry.getValue()));
         }
         return nodes;
+    }
+
+    private static Node createHuffmanTree(List<Node> nodes) {
+        while (nodes.size() > 1) {
+            // 排序，从小到大
+            Collections.sort(nodes);
+            // 取出第一颗最小的二叉树
+            Node leftNode = nodes.get(0);
+            // 取出第二颗最小的二叉树
+            Node rightNode = nodes.get(1);
+            // 创建一颗新的二叉树，它的根节点没有Data，只有权值
+            Node parent = new Node(null, leftNode.weight + rightNode.weight);
+            parent.left = leftNode;
+            parent.right = rightNode;
+
+            // 将已经处理的两颗二叉树从nodes删除
+            nodes.remove(leftNode);
+            nodes.remove(rightNode);
+            // 将新的二叉树，加入到nodes
+            nodes.add(parent);
+        }
+        // nodes最后的节点，就是哈夫曼树的根节点
+        return nodes.get(0);
     }
 }
 
