@@ -27,6 +27,49 @@ public class HuffmanCode {
         // 测试，生成对应的哈夫曼编码
         Map<Byte, String> huffmanCodes = getCodes(huffmanTreeRoot);
         System.out.println("生成的哈夫曼编码表" + huffmanCodes);
+
+        byte[] huffmanCodeBytes = zip(contentBytes, huffmanCodes);
+        System.out.println("huffmanCodeBytes=" + Arrays.toString(huffmanCodeBytes));
+    }
+
+    /**
+     * 将字符串对应的byte[]数组，通过生成的哈夫曼编码表，返回一个哈夫曼编码 压缩后的byte[]
+     * @param bytes 这是原始字符串对应的 byte[]
+     * @param huffmanCodes 返回哈夫曼处理后的 byte[]
+     * @return
+     */
+    private static byte[] zip(byte[] bytes, Map<Byte, String> huffmanCodes) {
+        // 1.利用 huffmanCodes 将 bytes 转成 哈夫曼编码对应的字符串
+        StringBuilder stringBuilder = new StringBuilder();
+        // 遍历bytes数组
+        for (byte b : bytes) {
+            stringBuilder.append(huffmanCodes.get(b));
+        }
+
+        // 统计返回 byte[] huffmanCodeBytes 长度
+        // 一行代码 int len = (stringBuilder.length() + 7)/8
+        int len;
+        if (stringBuilder.length() % 8 == 0) {
+            len = stringBuilder.length() / 8;
+        } else {
+            len = stringBuilder.length() / 8 + 1;
+        }
+        // 创建 存储压缩后的 byte 数组
+        byte[] huffmanCodeBytes = new byte[len];
+        int index = 0;// 记录是第几个byte
+        for (int i = 0; i < stringBuilder.length(); i += 8) { // 每8位对应一个byte
+            String strByte;
+            if (i + 8 > stringBuilder.length()) {
+                strByte = stringBuilder.substring(i);
+            } else {
+                strByte = stringBuilder.substring(i, i + 8);
+            }
+
+            // 将strByte 转成一个byte，放入到 huffmanCodeBytes
+            huffmanCodeBytes[index] = (byte)Integer.parseInt(strByte, 2);
+            index++;
+        }
+        return huffmanCodeBytes;
     }
 
     // 生成哈夫曼树对应的哈夫曼编码
