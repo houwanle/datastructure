@@ -22,13 +22,18 @@ public class HuffmanCode {
 //        byte[] sourceBytes = decode(huffmanCodes, huffmanCodesBytes);
 //        System.out.println("原来的字符串:" + new String(sourceBytes));//i like like like java do you like a java
 
-        // 测试压缩文件
-        String srcFile = "F:\\123.jpg";
-        String dstFile = "F:\\123.zip";
+//        // 测试压缩文件
+//        String srcFile = "E:\\IdeaProjects\\project\\DataStructure\\data\\test.bmp";
+//        String dstFile = "E:\\IdeaProjects\\project\\DataStructure\\data\\test.zip";
+//
+//        zipFile(srcFile,dstFile);
+//        System.out.println("压缩文件成功");
 
-        zipFile(srcFile,dstFile);
-        System.out.println("压缩文件成功");
-
+        // 测试解压文件
+        String zipFile = "E:\\IdeaProjects\\project\\DataStructure\\data\\test.zip";
+        String dstFile = "E:\\IdeaProjects\\project\\DataStructure\\data\\test1.bmp";
+        unZipFile(zipFile, dstFile);
+        System.out.println("解压成功~~");
 
 //        List<Node> nodes = getNodes(contentBytes);
 //        System.out.println("nodes=" + nodes);
@@ -45,6 +50,48 @@ public class HuffmanCode {
 //
 //        byte[] huffmanCodeBytes = zip(contentBytes, huffmanCodes);
 //        System.out.println("huffmanCodeBytes=" + Arrays.toString(huffmanCodeBytes));
+    }
+
+    /**
+     * 将文件解压
+     * @param zipFile
+     * @param dstFile
+     */
+    public static void unZipFile(String zipFile, String dstFile) {
+        // 定义输入流
+        InputStream is = null;
+        // 定义一个对象输入流
+        ObjectInputStream ois = null;
+        // 定义文件的输出流
+        OutputStream os = null;
+
+        try {
+            // 创建文件输入流
+            is = new FileInputStream(zipFile);
+            // 创建一个和 is 关联的对象输入流
+            ois = new ObjectInputStream(is);
+            // 读取byte数组 huffmanBytes
+            byte[] huffmanBytes = (byte[])ois.readObject();
+            // 读取哈夫曼编码表
+            Map<Byte,String> huffmanCodes = (Map<Byte, String>)ois.readObject();
+
+            // 解码
+            byte[] bytes = decode(huffmanCodes, huffmanBytes);
+            //将bytes 数组写入到目标文件
+            os = new FileOutputStream(dstFile);
+            // 写数据到dstFile文件
+            os.write(bytes);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                os.close();
+                ois.close();
+                is.close();
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
     }
 
     /**
@@ -85,7 +132,7 @@ public class HuffmanCode {
                 is.close();
                 oos.close();
                 os.close();
-            } catch (IOException e) {
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
