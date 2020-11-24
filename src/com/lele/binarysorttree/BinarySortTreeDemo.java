@@ -10,7 +10,7 @@ package com.lele.binarysorttree;
 public class BinarySortTreeDemo {
 
     public static void main(String[] args) {
-        int[] arr = {7,3,10,12,5,1,9,2};
+        int[] arr = {7,3,10,12,5,1,9,0};
         BinarySortTree binarySortTree = new BinarySortTree();
         for (int i = 0; i < arr.length; i++) {
             binarySortTree.add(new Node(arr[i]));
@@ -24,7 +24,8 @@ public class BinarySortTreeDemo {
 //        binarySortTree.delNode(2);
 //        binarySortTree.delNode(5);
 //        binarySortTree.delNode(9);
-        binarySortTree.delNode(12);
+//        binarySortTree.delNode(12);
+        binarySortTree.delNode(1);
         System.out.println("删除结点后");
         binarySortTree.infixOrder();
     }
@@ -89,6 +90,25 @@ class BinarySortTree {
                     parent.left = null;
                 } else if (parent.right != null && parent.right.value == value) {// 是右子节点
                     parent.right = null;
+                }
+            } else if (targetNode.left != null && targetNode.right != null) {  // 删除有两颗子树的节点
+
+            } else {  // 删除只有一颗子树的结点
+                // 如果要删除的结点有左子结点
+                if (targetNode.left != null) {
+                    // 如果targetNode 是 parent 的左子结点
+                    if (parent.left.value == value) {
+                        parent.left = targetNode.left;
+                    } else {// targetNode 是parent的右子结点
+                        parent.right = targetNode.left;
+                    }
+                } else { // 如果要删除的结点有右子结点
+                    // 如果 targetNode 是parent 的左子结点
+                    if (parent.left.value == value) {
+                        parent.left = targetNode.right;
+                    } else { // 如果targetNode是parent的右子结点
+                        parent.right = targetNode.right;
+                    }
                 }
             }
 
