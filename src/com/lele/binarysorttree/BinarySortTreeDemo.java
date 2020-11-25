@@ -25,7 +25,7 @@ public class BinarySortTreeDemo {
 //        binarySortTree.delNode(5);
 //        binarySortTree.delNode(9);
 //        binarySortTree.delNode(12);
-        binarySortTree.delNode(1);
+        binarySortTree.delNode(10);
         System.out.println("删除结点后");
         binarySortTree.infixOrder();
     }
@@ -62,6 +62,24 @@ class BinarySortTree {
     }
 
     /**
+     * 1.返回以node为根节点的二叉排序树的最小结点的值
+     * 2.删除以node为根节点的二叉排序树的最小结点
+     * @param node 传入的结点（当做二叉排序树的根节点）
+     * @return 返回 以node为根节点的二叉排序树的最小结点的值
+     */
+    public int delRightTreeMin(Node node) {
+        Node target = node;
+        // 循环查找左节点，就会找到最小值
+        while(target.left != null) {
+            target = target.left;
+        }
+        // 这时target就指向了最小结点
+        // 删除最小结点
+        delNode(target.value);
+        return target.value;
+    }
+
+    /**
      * 删除节点
      * @param value
      */
@@ -92,7 +110,8 @@ class BinarySortTree {
                     parent.right = null;
                 }
             } else if (targetNode.left != null && targetNode.right != null) {  // 删除有两颗子树的节点
-
+                int minVal = delRightTreeMin(targetNode.right);
+                targetNode.value = minVal;
             } else {  // 删除只有一颗子树的结点
                 // 如果要删除的结点有左子结点
                 if (targetNode.left != null) {
