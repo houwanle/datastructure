@@ -200,6 +200,25 @@ class Node {
     }
 
     /**
+     * 左旋转方法
+     */
+    private void leftRotate(){
+        // 创建新的结点，以当前根结点的值
+        Node newNode = new Node(value);
+        // 把新的结点的左子树设置成当前结点的左子树
+        newNode.left = left;
+        // 把新的结点的右子树设置成当前节点的右子树的左子树
+        newNode.right = right.left;
+        // 把当前结点的值替换成右子结点的值
+        value = right.value;
+        // 把当前结点的右子树设置成当前结点的右子树的右子树
+        right = right.right;
+        // 把当前结点的左子树（左子结点）设置成新的结点
+        left = newNode;
+    }
+
+
+    /**
      * 查找要删除的结点
      * @param value  希望删除的结点的值
      * @return  如果找到，返回该结点，否则返回null
@@ -274,6 +293,11 @@ class Node {
                 // 递归向右子树添加
                 this.right.add(node);
             }
+        }
+
+        // 当添加完一个结点后，如果：（右子树的高度-左子树的高度）> 1，左旋转
+        if (rightHeight() - leftHeight() > 1) {
+            leftRotate();// 左旋转
         }
     }
 
