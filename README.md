@@ -52,4 +52,4 @@
 - [平衡二叉树](./src/com/lele/avl/AVLTreeDemo.java)
 
 ### 10. 图
-- [图(深度优先)](./src/com/lele/graph/Graph.java)
+- [图(深度优先/广度优先)](./src/com/lele/graph/Graph.java)
