@@ -61,4 +61,5 @@
 - [字符串匹配(暴力匹配)](./src/com/lele/algorithm/kmp/ViolenceMatch.java)
 - [字符串匹配(KMP算法)](./src/com/lele/algorithm/kmp/KMPAlgorithm.java)
 - [贪心算法](./src/com/lele/algorithm/greedy/GreedyAlgorithm.java)
+- [普里姆算法](./src/com/lele/algorithm/prim/PrimAlgorithm.java)
 
