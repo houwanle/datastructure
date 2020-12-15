@@ -63,4 +63,5 @@
 - [贪心算法](./src/com/lele/algorithm/greedy/GreedyAlgorithm.java)
 - [普里姆算法](./src/com/lele/algorithm/prim/PrimAlgorithm.java)
 - [克鲁斯卡尔算法](./src/com/lele/algorithm/kruskal/KruskalCase.java)
+- [迪杰斯特拉算法](./src/com/lele/algorithm/dijkstra/DijkstraAlgorithm.java)
 
